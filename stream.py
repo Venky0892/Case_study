@@ -81,9 +81,9 @@ def sidebar():
     if st.sidebar.button("Extract 👈"):
         if title != "" and Dy != "":
             with st.spinner('Please wait......'):
-                df = inf.get_results_for_all_tags( title, Dy, MY_API_KEY)
-                df.to_csv('result_00.csv')
-                st.write(f"Extracting information about {title} done")
+                # df = inf.get_results_for_all_tags( title, Dy, MY_API_KEY)
+                # df.to_csv('result_00.csv')
+                # st.write(f"Extracting information about {title} done")
                 df = pd.read_csv('result_00.csv')
                 df.drop_duplicates(subset=['webTitle', 'webUrl'], inplace = True)
                 df['Date'] = pd.to_datetime(df['webPublicationDate']).dt.date
@@ -116,7 +116,8 @@ def sidebar():
 
                 # QUESTION 3 ***********************************************************************************************************
                 df_1.to_sql('users_ex', con=engine)
-                question3 = engine.execute(f"select Sum(Article_count) / (julianday() - julianday({Dy})) as average from users_ex;")
+                question3 = engine.execute(f"select Sum(Article_count) / (julianday(max(date)) - julianday(min(date))) as average from users_ex;")
+                # question3 = engine.execute(f"select julianday(max(date)) - julianday(min(date))as average from users_ex;")
                 df_2 = pd.DataFrame(question3.fetchall()) 
                 st.write("Question 3: Average of all days from the above mention period from No.of.articles", df_2)
                 st.write("------------------------------------------------------------------------------------------------------------")
@@ -170,7 +171,7 @@ def sidebar():
                 # # st.write("Question6", question6)
 
                 st.write("------------------------------------------------------------------------------------------------------------")
-                st.write("Pandas Profilling for the overview of the extracted information")
+                st.write(f"Pandas Profilling for the overview of the {title}")
                 pr = df.profile_report()
 
                 st_profile_report(pr)
