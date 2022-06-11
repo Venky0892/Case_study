@@ -38,6 +38,12 @@ cd CASE_STUDY/Answers.pdf
 For the purpose of the task I have created a streamlit web application to extract any person information using the "Search Bar" and "Date".  The web application will generate answers for all the questions in a automated way. 
 
 
+## Screenshots
+
+![App Screenshot](https://github.com/Venky0892/Case_study/blob/master/streamlit.png)
+
+
+
 
 ## Run Locally
 
@@ -84,3 +90,5 @@ In the streamlit application
 Inside the search bar : "Provide the information to search"
 Inside the date field : "Provide the date formate and to extract data"
 ```
+
+

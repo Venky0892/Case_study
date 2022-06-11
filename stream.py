@@ -24,10 +24,20 @@ def main():
     sidebar()
 
 def header(url):
-     st.markdown(f'<p style=color:#F5340B;font-size:18px;border-radius:2%;">{url}</p>', unsafe_allow_html=True)
+     st.markdown(f'<p style=color:#F5340B;font-size:10px;border-radius:2%;">{url}</p>', unsafe_allow_html=True)
 
 def body():
-    st.title("Information Extraction App")
+    st.set_page_config(layout="wide")
+
+    st.markdown("""
+    <style>
+    .big-font {
+        font-size:50px !important;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+    st.markdown('<p class="big-font"> Auto-Extraction App 🎉 </p>', unsafe_allow_html=True)
+    st.markdown('<p class="small-font">Owner: Venkatesh Prasath M </p>', unsafe_allow_html=True)
     
 def plot(X, Y, name_x,name_y, line = False, bar = False):
     year = list(X)
@@ -47,6 +57,7 @@ def plot(X, Y, name_x,name_y, line = False, bar = False):
     plt.ylabel(name_y)
     plt.title(name_x + '  vs  ' + name_y) 
     st.pyplot(fig)
+
 
 def sidebar():
     st.markdown(
