@@ -157,9 +157,12 @@ def sidebar():
                 st.write("Some examples of the unusual event", df_test)
                 st.write("Article trending vs Time Period with some anomalies")
                 # # st.write("Question6", question6)
-                # pr = df.profile_report()
 
-                # st_profile_report(pr)
+                st.write("------------------------------------------------------------------------------------------------------------")
+                st.write("Pandas Profilling for the overview of the extracted information")
+                pr = df.profile_report()
+
+                st_profile_report(pr)
 
                 
                 # st.balloons()
