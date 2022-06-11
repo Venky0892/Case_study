@@ -76,7 +76,7 @@ Install dependencies
   pip install -r requirements.txt
 ```
 
-Start the server
+Start the server by running following command in the terminal window
 
 ```bash
   streamlit run stream.py
