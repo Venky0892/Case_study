@@ -81,9 +81,9 @@ def sidebar():
     if st.sidebar.button("Extract 👈"):
         if title != "" and Dy != "":
             with st.spinner('Please wait......'):
-                # df = inf.get_results_for_all_tags( title, Dy, MY_API_KEY)
-                # df.to_csv('result_00.csv')
-                # st.write(f"Extracting information about {title} done")
+                df = inf.get_results_for_all_tags( title, Dy, MY_API_KEY)
+                df.to_csv('result_00.csv')
+                st.write(f"Extracting information about {title} done")
                 df = pd.read_csv('result_00.csv')
                 df.drop_duplicates(subset=['webTitle', 'webUrl'], inplace = True)
                 df['Date'] = pd.to_datetime(df['webPublicationDate']).dt.date
