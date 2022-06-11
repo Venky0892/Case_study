@@ -70,14 +70,8 @@ class Inference():
         return all_tag_df
 
 
-# inf = Inference()
 
 # API Key 
 MY_API_KEY = open("key.txt").read().strip()
 
 
-# df = inf.get_results_for_all_tags( 'Justin Trudeau', "2018-01-01", MY_API_KEY)
-# df.drop_duplicates(subset=['webTitle', 'webUrl'], inplace = True)
-# df['webPublicationDate'] = df['webPublicationDate'].apply(lambda x: pd.to_datetime(x))
-
-# df.to_csv('result_00.csv')
