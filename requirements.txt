@@ -6,3 +6,4 @@ pandas-profiling==3.2.0
 pandasql==0.7.3
 requests
 schedule
+fbprophet
